@@ -1,0 +1,2837 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <title>ATIK - The Association of Turnaround &amp; Insolvency Kenya</title>
+    <meta
+      content="Kenya's professional association for turnaround, insolvency and business recovery. A central, inclusive forum for practitioners, the Official Receiver, the Judiciary and other stakeholders."
+      name="description"
+    />
+    <meta
+      content="ATIK - The Association of Turnaround &amp; Insolvency Kenya"
+      property="og:title"
+    />
+    <meta
+      content="Kenya's professional association for turnaround, insolvency and business recovery. A central, inclusive forum for practitioners, the Official Receiver, the Judiciary and other stakeholders."
+      property="og:description"
+    />
+    <meta
+      content="assets/images/kenyan-boardroom-hero.jpg"
+      property="og:image"
+    />
+    <meta
+      content="ATIK - The Association of Turnaround &amp; Insolvency Kenya"
+      name="twitter:title"
+    />
+    <meta
+      content="Kenya's professional association for turnaround, insolvency and business recovery. A central, inclusive forum for practitioners, the Official Receiver, the Judiciary and other stakeholders."
+      name="twitter:description"
+    />
+    <meta
+      content="assets/images/kenyan-boardroom-hero.jpg"
+      name="twitter:image"
+    />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 36V17a14 14 0 0 1 28 0v19z' fill='%23023f34'/%3E%3Cpath d='M6 34l17-11 11 9' fill='none' stroke='%2390d0c8' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Roboto+Slab:wght@700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&amp;display=swap"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.documentElement.classList.add("js");
+      // Palette sampled from the ATIK 2026 profile deck
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Manrope", "system-ui", "sans-serif"],
+              display: ["Source Serif 4", "Georgia", "serif"],
+              slab: ["Roboto Slab", "Rockwell", "Georgia", "serif"], // logo wordmark
+            },
+            colors: {
+              ink: "#023f34", // deep green
+              deep: "#032820", // darkest green
+              brand: "#90d0c8", // mint accent
+              teal: "#63a99f", // mid teal (numerals, labels)
+              cream: "#e8f3f1", // pale mint section tint
+              n200: "#f5faf8",
+              n300: "#e3eeeb",
+              n400: "#c9d8d4",
+              n500: "#8fa8a1",
+              n600: "#556862",
+              n700: "#0d5446",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Animations and small polish, CSS only. Everything is visible by default; motion is layered on
+         only when the visitor allows it, and scroll reveals only where supported. */
+      ::selection {
+        background: #90d0c8;
+        color: #023f34;
+      }
+      :focus-visible {
+        outline: 2px solid #63a99f;
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+      }
+      @keyframes slide-in {
+        from {
+          opacity: 0;
+          transform: translateX(48px);
+        }
+      }
+      @keyframes drop {
+        from {
+          opacity: 0;
+          transform: translateY(-12px);
+        }
+      }
+      @keyframes float {
+        50% {
+          translate: 0 -8px;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        /* Page load: hero copy staggered, then hero image */
+        main > section:first-child .max-w-\[573px\] > * {
+          animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(1) {
+          animation-delay: 0.05s;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(2) {
+          animation-delay: 0.15s;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(3) {
+          animation-delay: 0.25s;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(4) {
+          animation-delay: 0.35s;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(5) {
+          animation-delay: 0.45s;
+        }
+        main > section:first-child .max-w-\[573px\] > :nth-child(6) {
+          animation-delay: 0.55s;
+        }
+        main > section:first-child > div:last-child {
+          animation: slide-in 0.9s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        /* Floating overlay cards */
+        main .float-card {
+          animation: float 7s ease-in-out infinite;
+        }
+        main .float-card.space-y-3 {
+          animation-duration: 8.5s;
+          animation-delay: -3s;
+        }
+
+        /* Mobile menu fades in when opened */
+        #nav-toggle:checked ~ nav {
+          animation: drop 0.25s ease-out both;
+        }
+
+        /* Hover micro-interactions */
+        a[class*="rounded-lg"] > svg {
+          transition: transform 0.3s;
+        }
+        a[class*="rounded-lg"]:hover > svg {
+          transform: translateX(4px);
+        }
+        .lift {
+          transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+        }
+        .lift:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 48px -20px rgba(2, 63, 52, 0.28);
+        }
+        .tile {
+          transition: transform 0.3s;
+        }
+        .lift:hover .tile,
+        .grid > div:hover > div:first-child > .tile {
+          transform: rotate(-6deg) scale(1.08);
+        }
+
+        /* Scroll reveals: .rv is added by the script at the end of the page, so nothing is
+           hidden without JS. Fill is backwards only, leaving hover transforms free afterwards. */
+        .js .rv {
+          opacity: 0;
+        }
+        .js .rv.in {
+          opacity: 1;
+          animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s)
+            backwards;
+        }
+
+        /* Hero: slow drifting glow behind the copy */
+        main > section:first-child::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background:
+            radial-gradient(
+              38% 46% at 22% 30%,
+              rgba(144, 208, 200, 0.2),
+              transparent 70%
+            ),
+            radial-gradient(
+              30% 40% at 60% 85%,
+              rgba(99, 169, 159, 0.16),
+              transparent 70%
+            );
+          background-size: 140% 140%;
+          animation: glow 16s ease-in-out infinite alternate;
+        }
+        main > section:first-child > div:first-of-type {
+          position: relative;
+        }
+
+        /* Images ease in closer on hover */
+        .overflow-hidden > img {
+          transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .overflow-hidden:hover > img,
+        .lift:hover .avatar > img,
+        .group:hover .overflow-hidden > img {
+          transform: scale(1.06);
+        }
+        .avatar {
+          transition: box-shadow 0.3s;
+        }
+        .lift:hover .avatar {
+          box-shadow: 0 0 0 4px #90d0c8;
+        }
+
+        /* Buttons lift slightly and press in */
+        a[class*="rounded-lg"] {
+          transition:
+            color 0.3s,
+            background-color 0.3s,
+            border-color 0.3s,
+            transform 0.25s,
+            box-shadow 0.25s;
+        }
+        a[class*="rounded-lg"]:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px -12px rgba(2, 63, 52, 0.45);
+        }
+        a[class*="rounded-lg"]:active {
+          transform: translateY(0) scale(0.98);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          background-position: 0% 0%;
+        }
+        to {
+          background-position: 100% 100%;
+        }
+      }
+
+      /* Reading progress + header shadow once scrolled */
+      #progress {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 40;
+        height: 3px;
+        background: linear-gradient(90deg, #63a99f, #90d0c8);
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+      header.scrolled {
+        box-shadow: 0 10px 30px -18px rgba(2, 63, 52, 0.35);
+      }
+
+      /* Nav links: underline draws in from the left */
+      header nav a:not([class*="rounded-lg"]) {
+        position: relative;
+        padding-bottom: 6px;
+      }
+      header nav a:not([class*="rounded-lg"])::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #63a99f;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+      header nav a:not([class*="rounded-lg"]):hover::after {
+        transform: scaleX(1);
+      }
+      h1,
+      h2 {
+        font-family: "Source Serif 4", Georgia, serif !important;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+      }
+      h3,
+      h4,
+      h5,
+      h6,
+      button,
+      input,
+      textarea,
+      select {
+        font-family: "Manrope", system-ui, sans-serif;
+      }
+      p {
+        text-wrap: pretty;
+      }
+    </style>
+  </head>
+  <body
+    id="top"
+    class="bg-white font-sans text-[17px] leading-[1.7] text-n600 antialiased"
+  >
+    <div id="progress" aria-hidden="true"></div>
+    <!-- Top bar (dismissable via checkbox, no JS) -->
+    <input type="checkbox" id="topbar-close" class="peer hidden" />
+    <div
+      class="relative bg-brand px-14 py-3.5 text-center text-ink peer-checked:hidden sm:px-[72px]"
+    >
+      <div
+        class="mx-auto w-full max-w-[1316px] px-6 text-sm font-semibold leading-snug"
+      >
+        INSOL International + World Bank Group Africa Round Table, Nairobi,
+        October 2026.
+        <span class="whitespace-nowrap">All ATIK members invited.</span>
+      </div>
+      <label
+        for="topbar-close"
+        aria-label="Dismiss announcement"
+        class="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center sm:right-6"
+      >
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </label>
+    </div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-30 border-b border-n300 bg-white/90 py-4 backdrop-blur transition-shadow duration-300"
+    >
+      <div
+        class="mx-auto w-full max-w-[1316px] px-6 flex flex-wrap items-center justify-between gap-x-8"
+      >
+        <a
+          href="#top"
+          class="inline-flex items-center gap-3 no-underline"
+          aria-label="ATIK - The Association of Turnaround &amp; Insolvency Kenya"
+          ><svg
+            class="h-11 w-11 shrink-0"
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <path d="M6 36V17a14 14 0 0 1 28 0v19z" fill="#023f34" />
+            <path
+              d="M6 34l17-11 11 9"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="3"
+              stroke-linejoin="round"
+            /></svg
+          ><span
+            class="font-slab text-[11px] font-bold uppercase leading-[1.2] tracking-[0.06em] text-ink sm:text-[13px]"
+            >The Association<br />of Turnaround &amp;<br />Insolvency
+            Kenya</span
+          ></a
+        >
+        <input type="checkbox" id="nav-toggle" class="peer hidden" />
+        <nav
+          aria-label="Main"
+          class="order-last hidden w-full pt-8 peer-checked:block xl:order-none xl:ml-auto xl:block xl:w-auto xl:pt-0"
+        >
+          <ul class="flex flex-col gap-6 xl:flex-row xl:items-center xl:gap-7">
+            <li>
+              <a
+                href="#about"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#mandate"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >Mandate</a
+              >
+            </li>
+            <li>
+              <a
+                href="#membership"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >Membership</a
+              >
+            </li>
+            <li>
+              <a
+                href="#development"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >Development</a
+              >
+            </li>
+            <li>
+              <a
+                href="#board"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >Leadership</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-lg xl:text-base leading-[1.111] text-ink no-underline transition-colors duration-300 hover:text-teal"
+                >Contact</a
+              >
+            </li>
+            <li class="sm:hidden">
+              <a
+                href="#membership"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-6 py-4 text-[15px] font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink w-full"
+                >Become a member<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></a>
+            </li>
+          </ul>
+        </nav>
+        <div class="flex items-center gap-6">
+          <a
+            href="#membership"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-6 py-4 text-[15px] font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink hidden sm:inline-flex"
+            >Become a member<svg
+              class="ml-2 h-[18px] w-[18px]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" /></svg
+          ></a>
+          <label
+            for="nav-toggle"
+            aria-label="Toggle navigation"
+            class="flex h-12 w-12 cursor-pointer flex-col items-center justify-center gap-2 xl:hidden"
+          >
+            <span class="block h-0.5 w-8 bg-ink"></span>
+            <span class="block h-0.5 w-8 bg-ink"></span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section
+        class="relative bg-ink bg-[radial-gradient(120%_140%_at_0%_0%,#0d5446_0%,#023f34_45%,#032820_100%)] lg:mb-[120px]"
+      >
+        <div
+          class="mx-auto w-full max-w-[1316px] px-6 py-20 md:py-24 lg:py-[140px]"
+        >
+          <div class="lg:max-w-[50%] lg:pr-10">
+            <div class="max-w-[573px]">
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-brand"
+              >
+                The Association of Turnaround &amp; Insolvency Kenya
+              </div>
+              <h1
+                class="mb-5 text-[42px] font-medium leading-[1.08] tracking-[-0.03em] text-white md:text-[56px] xl:text-[72px]"
+              >
+                ATIK
+                <span class="block font-normal text-brand"
+                  >Empowering Professionals.</span
+                >
+              </h1>
+              <p class="mb-9 max-w-[480px] text-xl leading-relaxed text-n300">
+                Kenya's professional association for turnaround, insolvency and
+                <span class="whitespace-nowrap">business recovery.</span>
+              </p>
+              <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                <a
+                  href="#membership"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white bg-white text-ink hover:border-brand hover:bg-brand"
+                  >Become a member<svg
+                    class="ml-2 h-[18px] w-[18px]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg></a
+                ><a
+                  href="#about"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white text-white font-normal hover:bg-white hover:text-ink"
+                  >Learn more</a
+                >
+              </div>
+              <div class="my-12 h-px w-16 bg-brand"></div>
+              <div>
+                <div
+                  class="mb-3 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+                >
+                  Built by the profession
+                </div>
+                <div class="text-lg font-medium leading-[1.5] text-n200">
+                  Founded by senior practitioners from ALN, PwC, KPMG, Deloitte,
+                  Adili Associates and KR Consult.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative px-6 pb-20 lg:absolute lg:inset-y-0 lg:right-0 lg:-mb-[80px] lg:w-[45%] lg:px-0 lg:pb-0"
+        >
+          <div
+            class="h-[360px] overflow-hidden rounded-2xl sm:h-[480px] lg:h-full lg:rounded-none lg:rounded-bl-[10px]"
+          >
+            <img
+              src="assets/images/kenyan-boardroom-hero.jpg"
+              alt="Kenyan turnaround and insolvency professionals meeting in Nairobi"
+              class="h-full w-full object-cover object-[62%_center]"
+            />
+          </div>
+          <div
+            class="absolute bottom-28 left-10 w-[75%] max-w-[385px] lg:-left-[52px] lg:bottom-[15%] lg:w-full"
+          >
+            <div
+              class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] bg-white"
+            >
+              <div
+                class="flex items-center gap-2 text-sm font-semibold uppercase leading-none tracking-[0.15em] text-teal"
+              >
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                Oct 2026 · Nairobi
+              </div>
+              <div class="mt-3 text-2xl font-semibold leading-tight text-ink">
+                Africa Round Table
+              </div>
+              <div class="mt-1 text-sm leading-snug text-n600">
+                INSOL International + World Bank Group
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Founding firms -->
+      <section class="border-b border-n300 py-12 lg:py-14">
+        <div
+          class="mx-auto w-full max-w-[1316px] px-6 flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-left"
+        >
+          <h2
+            class="shrink-0 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+          >
+            Founded by senior practitioners from
+          </h2>
+          <ul
+            class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 lg:justify-end"
+          >
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>ALN</span
+              ><span
+                class="h-1 w-1 rounded-full bg-teal"
+                aria-hidden="true"
+              ></span>
+            </li>
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>PwC</span
+              ><span
+                class="h-1 w-1 rounded-full bg-teal"
+                aria-hidden="true"
+              ></span>
+            </li>
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>KPMG</span
+              ><span
+                class="h-1 w-1 rounded-full bg-teal"
+                aria-hidden="true"
+              ></span>
+            </li>
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>Deloitte</span
+              ><span
+                class="h-1 w-1 rounded-full bg-teal"
+                aria-hidden="true"
+              ></span>
+            </li>
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>Adili Associates</span
+              ><span
+                class="h-1 w-1 rounded-full bg-teal"
+                aria-hidden="true"
+              ></span>
+            </li>
+            <li
+              class="flex items-center gap-x-8 text-lg font-semibold leading-none tracking-[-0.01em] text-ink"
+            >
+              <span>KR Consult</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Who ATIK is -->
+      <section
+        id="about"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="mx-auto grid max-w-[600px] items-center gap-14 md:max-w-[700px] lg:max-w-none lg:grid-cols-2 lg:gap-10"
+          >
+            <div class="relative w-full max-w-[633px]">
+              <div class="mb-8 ml-auto w-[90%] max-w-[580px] lg:w-full">
+                <div class="overflow-hidden rounded-2xl">
+                  <img
+                    src="assets/images/kenyan-restructuring-review.jpg"
+                    loading="lazy"
+                    alt="Kenyan professionals reviewing a restructuring plan"
+                    class="aspect-[58/62] w-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 w-[75%] max-w-[414px]">
+                <div
+                  class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] bg-white"
+                >
+                  <div class="flex items-center gap-5">
+                    <div
+                      class="text-[56px] font-semibold leading-none text-teal"
+                    >
+                      05
+                    </div>
+                    <div>
+                      <div class="text-lg font-semibold leading-tight text-ink">
+                        Africa's fifth association of its kind.
+                      </div>
+                      <div class="mt-1 text-sm leading-snug text-n600">
+                        After South Africa, Nigeria, Mauritius and Ghana.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full max-w-[546px] lg:justify-self-end">
+              <div class="mb-9">
+                <div
+                  class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+                >
+                  Who ATIK is
+                </div>
+                <h2
+                  class="mb-5 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+                >
+                  A central, inclusive professional forum for a developing
+                  insolvency ecosystem.
+                </h2>
+                <p class="mb-4">
+                  ATIK was formed in response to the need for a professional,
+                  centralised and inclusive association for Kenya, particularly
+                  as the country's insolvency regime remains relatively new and
+                  jurisprudence continues
+                  <span class="whitespace-nowrap">to develop.</span>
+                </p>
+                <p>
+                  The Association provides a forum for practitioners to network,
+                  share know-how, engage the Office of the Official Receiver and
+                  the Judiciary, develop younger professionals and represent
+                  members' views on
+                  <span class="whitespace-nowrap">legislative change.</span>
+                </p>
+              </div>
+              <div class="mb-12 grid gap-10 sm:grid-cols-2">
+                <div>
+                  <div class="mb-6">
+                    <span
+                      class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                      ><svg
+                        class="h-6 w-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+                    ></span>
+                  </div>
+                  <h3
+                    class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                  >
+                    Built by the profession
+                  </h3>
+                  <p>
+                    A forum for practitioners, the Official Receiver, the
+                    Judiciary and
+                    <span class="whitespace-nowrap">other stakeholders.</span>
+                  </p>
+                </div>
+                <div>
+                  <div class="mb-6">
+                    <span
+                      class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                      ><svg
+                        class="h-6 w-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                        /></svg
+                    ></span>
+                  </div>
+                  <h3
+                    class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                  >
+                    Continental context
+                  </h3>
+                  <p>
+                    ATIK joins a small group of dedicated African associations
+                    advancing turnaround and
+                    <span class="whitespace-nowrap">insolvency practice.</span>
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#mandate"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+                >What ATIK exists to do<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The mandate -->
+      <section
+        id="mandate"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24 bg-cream"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="mb-12 grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:gap-10"
+          >
+            <div>
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+              >
+                The mandate
+              </div>
+              <h2
+                class="max-w-[595px] text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+              >
+                What ATIK exists to do.
+              </h2>
+              <p class="mt-4 max-w-[640px]">
+                A professional platform with a practical mandate across
+                standards, knowledge, reform and collaboration.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+              <a
+                href="#membership"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+                >Become a member<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg></a
+              ><a
+                href="#advocacy"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink text-ink font-normal hover:bg-ink hover:text-white"
+                >Advocacy</a
+              >
+            </div>
+          </div>
+          <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] flex flex-col p-8"
+            >
+              <div class="mb-8 flex items-start justify-between">
+                <span
+                  class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                  ><svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polygon
+                      points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                    /></svg></span
+                ><span
+                  class="text-sm font-semibold leading-none tracking-[0.2em] text-teal"
+                  >01</span
+                >
+              </div>
+              <h3
+                class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+              >
+                Thought Leadership
+              </h3>
+              <p>
+                Advance informed thinking on business turnarounds and
+                insolvency.
+              </p>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] flex flex-col p-8"
+            >
+              <div class="mb-8 flex items-start justify-between">
+                <span
+                  class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                  ><svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="23 4 23 10 17 10" />
+                    <polyline points="1 20 1 14 7 14" />
+                    <path
+                      d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+                    /></svg></span
+                ><span
+                  class="text-sm font-semibold leading-none tracking-[0.2em] text-teal"
+                  >02</span
+                >
+              </div>
+              <h3
+                class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+              >
+                Business Recovery
+              </h3>
+              <p>
+                Encourage effective turnaround of stressed and distressed
+                entities and assets.
+              </p>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] flex flex-col p-8"
+            >
+              <div class="mb-8 flex items-start justify-between">
+                <span
+                  class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                  ><svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                    /></svg></span
+                ><span
+                  class="text-sm font-semibold leading-none tracking-[0.2em] text-teal"
+                  >03</span
+                >
+              </div>
+              <h3
+                class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+              >
+                Knowledge Exchange
+              </h3>
+              <p>
+                Create a forum for practitioners to share experience, insight
+                and technical know-how.
+              </p>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] flex flex-col p-8"
+            >
+              <div class="mb-8 flex items-start justify-between">
+                <span
+                  class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                  ><svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 20h9" />
+                    <path
+                      d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                    /></svg></span
+                ><span
+                  class="text-sm font-semibold leading-none tracking-[0.2em] text-teal"
+                  >04</span
+                >
+              </div>
+              <h3
+                class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+              >
+                Law Reform
+              </h3>
+              <p>
+                Promote effective business recovery measures and insolvency
+                reform.
+              </p>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] flex flex-col p-8"
+            >
+              <div class="mb-8 flex items-start justify-between">
+                <span
+                  class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                  ><svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    /></svg></span
+                ><span
+                  class="text-sm font-semibold leading-none tracking-[0.2em] text-teal"
+                  >05</span
+                >
+              </div>
+              <h3
+                class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+              >
+                International Cooperation
+              </h3>
+              <p>
+                Strengthen cross-border learning and cooperation in business
+                recovery and insolvency.
+              </p>
+            </li>
+            <li class="flex flex-col justify-end rounded-2xl bg-ink p-8">
+              <div
+                class="mb-4 text-xs font-semibold uppercase leading-none tracking-[0.28em] text-brand"
+              >
+                The aim
+              </div>
+              <p
+                class="text-2xl font-medium leading-snug tracking-[-0.01em] text-white"
+              >
+                Better professional practice, better recovery outcomes and a
+                stronger ecosystem.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- The leadership imperative -->
+      <section class="py-20 md:py-24 lg:py-28 xl:py-[140px]">
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div class="mx-auto mb-10 max-w-[720px] text-center">
+            <div
+              class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+            >
+              The leadership imperative
+            </div>
+            <h2
+              class="mb-3.5 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+            >
+              Business distress is not merely a legal event.
+            </h2>
+            <p
+              class="mb-4 text-2xl font-normal leading-snug tracking-[-0.01em] text-teal"
+            >
+              It is a test of governance, capital and confidence.
+            </p>
+            <p>
+              How distress is managed determines whether value is preserved,
+              jobs are protected and confidence in the market is strengthened,
+              <span class="whitespace-nowrap">or lost.</span>
+            </p>
+          </div>
+          <div
+            class="mx-auto grid max-w-[600px] items-center gap-12 lg:max-w-none lg:grid-cols-[1fr_1.7fr_1fr] lg:gap-7"
+          >
+            <div
+              class="grid gap-10 sm:grid-cols-2 lg:max-w-[296px] lg:grid-cols-1 lg:gap-20"
+            >
+              <div>
+                <div class="mb-6">
+                  <span
+                    class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                    ><svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                      <path
+                        d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+                      /></svg
+                  ></span>
+                </div>
+                <h3
+                  class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  01. Enterprise
+                </h3>
+                <p>Preserve viable businesses and productive assets.</p>
+              </div>
+              <div>
+                <div class="mb-6">
+                  <span
+                    class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                    ><svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                      <polyline points="17 6 23 6 23 12" /></svg
+                  ></span>
+                </div>
+                <h3
+                  class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  02. Capital
+                </h3>
+                <p>Improve recovery, restructuring and allocation decisions.</p>
+              </div>
+            </div>
+            <div class="relative mx-auto w-full max-w-[523px]">
+              <div class="overflow-hidden rounded-2xl">
+                <img
+                  src="assets/images/kenyan-woman-leading.jpg"
+                  loading="lazy"
+                  alt="Kenyan woman leading a professional boardroom discussion"
+                  class="aspect-[523/600] w-full object-cover"
+                />
+              </div>
+              <div class="absolute bottom-[23px] left-[23px] right-[23px]">
+                <div
+                  class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] bg-ink text-base font-medium leading-snug text-white"
+                >
+                  The turnaround and insolvency profession is part of Kenya's
+                  economic infrastructure.
+                </div>
+              </div>
+            </div>
+            <div
+              class="grid gap-10 sm:grid-cols-2 lg:max-w-[296px] lg:grid-cols-1 lg:gap-20 lg:justify-self-end"
+            >
+              <div>
+                <div class="mb-6">
+                  <span
+                    class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                    ><svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+                  ></span>
+                </div>
+                <h3
+                  class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  03. People
+                </h3>
+                <p>Protect jobs, livelihoods and institutional capability.</p>
+              </div>
+              <div>
+                <div class="mb-6">
+                  <span
+                    class="flex tile h-14 w-14 items-center justify-center rounded-xl bg-brand text-ink"
+                    ><svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                      /></svg
+                  ></span>
+                </div>
+                <h3
+                  class="mb-2 text-xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  04. Confidence
+                </h3>
+                <p>Support trust in lending, investment and the rule of law.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-[68px] flex justify-center">
+            <a
+              href="#membership"
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+              >Become a member<svg
+                class="ml-2 h-[18px] w-[18px]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- The member advantage -->
+      <section class="py-20 md:py-24 lg:py-28 xl:py-[140px] bg-n200">
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="mx-auto grid max-w-[600px] items-center gap-14 md:max-w-[700px] lg:max-w-none lg:grid-cols-[0.85fr_1fr] lg:gap-10"
+          >
+            <div class="w-full max-w-[560px]">
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+              >
+                The member advantage
+              </div>
+              <h2
+                class="mb-5 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+              >
+                Insight before impact. Connection before action. Capability
+                before crisis.
+              </h2>
+              <p class="mb-8">
+                Membership is not simply participation. It is a more informed,
+                connected and credible position within
+                <span class="whitespace-nowrap">the market.</span>
+              </p>
+              <div class="mb-12 grid grid-cols-2 gap-x-7 gap-y-10">
+                <div>
+                  <div
+                    class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cream text-ink"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div
+                    class="mb-2 border-b border-n400 pb-3 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-ink"
+                  >
+                    Foresight
+                  </div>
+                  <p class="text-base leading-normal">
+                    Early insight into legal, regulatory and policy
+                    developments.
+                  </p>
+                </div>
+                <div>
+                  <div
+                    class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cream text-ink"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div
+                    class="mb-2 border-b border-n400 pb-3 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-ink"
+                  >
+                    Access
+                  </div>
+                  <p class="text-base leading-normal">
+                    Direct engagement with practitioners and decision-makers.
+                  </p>
+                </div>
+                <div>
+                  <div
+                    class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cream text-ink"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                  </div>
+                  <div
+                    class="mb-2 border-b border-n400 pb-3 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-ink"
+                  >
+                    Capability
+                  </div>
+                  <p class="text-base leading-normal">
+                    Targeted learning through trainings, workshops and case
+                    studies.
+                  </p>
+                </div>
+                <div>
+                  <div
+                    class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cream text-ink"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="8" r="7" />
+                      <polyline
+                        points="8.21 13.89 7 23 12 20 17 23 15.79 13.89"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="mb-2 border-b border-n400 pb-3 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-ink"
+                  >
+                    Credibility
+                  </div>
+                  <p class="text-base leading-normal">
+                    Visible commitment to professional standards and responsible
+                    practice.
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#membership"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+                >Become a member<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></a>
+            </div>
+            <div class="relative w-full max-w-[707px] lg:justify-self-end">
+              <div class="mb-9 mr-6 sm:mr-10">
+                <div class="ml-auto w-[90%] max-w-[580px] lg:w-full">
+                  <div class="overflow-hidden rounded-2xl">
+                    <img
+                      src="assets/images/kenyan-boardroom-hero.jpg"
+                      loading="lazy"
+                      alt="Kenyan legal and finance professionals collaborating in Nairobi"
+                      class="aspect-[58/64] w-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 w-[78%] sm:w-[62%]">
+                <div
+                  class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] bg-white"
+                >
+                  <div class="text-xl font-semibold leading-tight text-ink">
+                    One table. Every critical voice.
+                  </div>
+                  <p class="mt-2 text-sm leading-snug">
+                    ATIK brings together the disciplines that influence how
+                    financial distress, restructuring and insolvency are
+                    understood and managed.
+                  </p>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Bankers</span
+                    ><span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Lawyers</span
+                    ><span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Accountants</span
+                    ><span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Advisors</span
+                    ><span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Regulators</span
+                    ><span
+                      class="rounded-md bg-cream px-3 py-2 text-xs font-semibold uppercase leading-none tracking-wider text-ink"
+                      >Judiciary</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global connection + Africa Round Table -->
+      <section
+        id="global"
+        class="scroll-mt-24 overflow-hidden bg-ink bg-[radial-gradient(120%_140%_at_0%_0%,#0d5446_0%,#023f34_45%,#032820_100%)] pt-20 md:pt-24 lg:pt-28 xl:pt-[140px]"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div class="mx-auto max-w-[720px] text-center">
+            <div
+              class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-brand"
+            >
+              Global connection
+            </div>
+            <h2
+              class="mb-4 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px] !text-white"
+            >
+              Kenya in the global conversation.
+            </h2>
+            <p class="mb-8 text-n300">
+              ATIK connects local professional development to INSOL
+              International, a worldwide federation of member associations and
+              professionals involved in turnaround and
+              <span class="whitespace-nowrap">insolvency practice.</span>
+            </p>
+            <div
+              class="flex flex-wrap items-center gap-4 sm:gap-6 justify-center"
+            >
+              <a
+                href="#membership"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white bg-white text-ink hover:border-brand hover:bg-brand"
+                >Become a member<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg></a
+              ><a
+                href="#contact"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white text-white font-normal hover:bg-white hover:text-ink"
+                >Membership enquiries</a
+              >
+            </div>
+          </div>
+          <div
+            class="mx-auto mt-14 grid max-w-[1000px] gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="text-left">
+              <div
+                class="mb-3 inline-block border-b-2 border-brand pb-2 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Knowledge
+              </div>
+              <p class="text-base leading-normal text-n300">
+                Member publications, technical papers, case studies and global
+                insight.
+              </p>
+            </div>
+            <div class="text-left">
+              <div
+                class="mb-3 inline-block border-b-2 border-brand pb-2 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Learning
+              </div>
+              <p class="text-base leading-normal text-n300">
+                Access to international conferences, seminars and specialist
+                learning.
+              </p>
+            </div>
+            <div class="text-left">
+              <div
+                class="mb-3 inline-block border-b-2 border-brand pb-2 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Network
+              </div>
+              <p class="text-base leading-normal text-n300">
+                Connection to a wider community of practitioners and
+                professional bodies.
+              </p>
+            </div>
+            <div class="text-left">
+              <div
+                class="mb-3 inline-block border-b-2 border-brand pb-2 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Profile
+              </div>
+              <p class="text-base leading-normal text-n300">
+                Opportunities to participate, contribute and be recognised
+                internationally.
+              </p>
+            </div>
+          </div>
+          <div class="relative mt-14 lg:mt-[90px]">
+            <div class="mx-auto w-full md:w-4/5">
+              <div class="overflow-hidden rounded-t-[10px]">
+                <img
+                  src="assets/images/kenyan-boardroom-hero.jpg"
+                  loading="lazy"
+                  alt="African restructuring professionals meeting with the Nairobi skyline behind them"
+                  class="aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            </div>
+            <div
+              class="absolute bottom-[14%] left-0 hidden w-[30%] max-w-[330px] md:block"
+            >
+              <div
+                class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] bg-white"
+              >
+                <div
+                  class="text-sm font-semibold uppercase leading-none tracking-[0.15em] text-teal"
+                >
+                  Strategic opportunity
+                </div>
+                <div
+                  class="mt-3 text-[40px] font-semibold leading-none text-ink"
+                >
+                  Oct 2026
+                </div>
+                <div class="mt-1 text-lg font-semibold leading-tight text-teal">
+                  Nairobi
+                </div>
+                <div class="mt-4 text-lg font-semibold leading-tight text-ink">
+                  Africa Round Table
+                </div>
+                <p class="mt-1 text-sm leading-snug">
+                  INSOL International + World Bank Group. A high-level forum
+                  focused on insolvency reform, restructuring and cross-border
+                  practice.
+                </p>
+              </div>
+            </div>
+            <div
+              class="absolute right-0 top-1/2 hidden w-[26%] max-w-[300px] -translate-y-1/2 md:block"
+            >
+              <div
+                class="float-card rounded-2xl p-6 shadow-[0_20px_48px_-16px_rgba(2,63,52,0.35)] space-y-3 bg-white"
+              >
+                <div
+                  class="rounded-md bg-brand px-3 py-2.5 text-center text-xs font-semibold uppercase leading-tight tracking-wider text-ink"
+                >
+                  All ATIK members invited
+                </div>
+                <div
+                  class="rounded-md border border-n400 px-3 py-2.5 text-center text-xs font-semibold uppercase leading-tight tracking-wider text-ink"
+                >
+                  Non-members: limited / invite only
+                </div>
+                <p class="text-sm font-medium leading-snug text-ink">
+                  Membership is the clearest route to participation and
+                  visibility.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mx-auto max-w-[600px] rounded-b-[10px] bg-white p-6 text-center md:hidden"
+          >
+            <div
+              class="text-sm font-semibold uppercase leading-none tracking-[0.15em] text-teal"
+            >
+              Oct 2026 · Nairobi
+            </div>
+            <div class="mt-2 text-xl font-semibold leading-tight text-ink">
+              INSOL International + World Bank Group Africa Round Table
+            </div>
+            <p class="mt-2 text-sm leading-snug">
+              All ATIK members invited. Non-members: limited / invite only.
+            </p>
+          </div>
+          <div class="h-20 md:hidden"></div>
+        </div>
+      </section>
+
+      <!-- Membership pathways -->
+      <section
+        id="membership"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="mb-12 grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:gap-10"
+          >
+            <div>
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+              >
+                Membership pathways
+              </div>
+              <h2
+                class="max-w-[700px] text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+              >
+                One profession. Three ways
+                <span class="whitespace-nowrap">to belong.</span>
+              </h2>
+              <p class="mt-4">
+                Different roles. One shared commitment to professional
+                excellence.
+              </p>
+            </div>
+            <div>
+              <a
+                href="mailto:info@turnaroundinsolvency.com?subject=ATIK%20membership%20enquiry"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+                >Enquire about membership<svg
+                  class="ml-2 h-[18px] w-[18px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></a>
+            </div>
+          </div>
+          <div
+            class="mx-auto grid max-w-[520px] gap-7 lg:max-w-none lg:grid-cols-3"
+          >
+            <article
+              class="lift group relative flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)]"
+            >
+              <div class="overflow-hidden">
+                <img
+                  src="assets/images/kenyan-restructuring-review.jpg"
+                  loading="lazy"
+                  alt="Kenyan professionals reviewing legal and financial restructuring documents"
+                  class="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              <div class="flex flex-1 flex-col p-8">
+                <div
+                  class="mb-4 flex items-center gap-3 text-xs font-semibold uppercase leading-none tracking-[0.28em] text-teal"
+                >
+                  <span>01</span><span class="h-px w-6 bg-n400"></span
+                  ><span class="text-ink">Honorary</span>
+                </div>
+                <h3
+                  class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  Serve the profession
+                </h3>
+                <p>
+                  Board-appointed membership, anchored by the Office of the
+                  Official Receiver.
+                </p>
+
+                <div class="mt-auto pt-8">
+                  <div
+                    class="border-t border-n300 pt-6 text-lg leading-snug text-ink"
+                  >
+                    By appointment
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="lift group relative flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] ring-2 ring-ink"
+            >
+              <div class="overflow-hidden">
+                <img
+                  src="assets/images/kenyan-woman-leading.jpg"
+                  loading="lazy"
+                  alt="Kenyan woman presenting a recovery strategy to fellow professionals"
+                  class="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <span
+                class="absolute right-4 top-4 rounded-full bg-brand px-3 py-1.5 text-[11px] font-semibold uppercase leading-none tracking-[0.12em] text-ink"
+                >Includes INSOL membership</span
+              >
+              <div class="flex flex-1 flex-col p-8">
+                <div
+                  class="mb-4 flex items-center gap-3 text-xs font-semibold uppercase leading-none tracking-[0.28em] text-teal"
+                >
+                  <span>02</span><span class="h-px w-6 bg-n400"></span
+                  ><span class="text-ink">Individual</span>
+                </div>
+                <h3
+                  class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  Advance professional practice
+                </h3>
+                <p>
+                  For practitioners with experience or a demonstrable interest
+                  in turnaround, insolvency and restructuring.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink">Learn.</strong>
+                      Specialist trainings, workshops and case studies.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink">Connect.</strong>
+                      Relationships across law, finance, accounting and
+                      advisory.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Contribute.</strong
+                      >
+                      Policy discussions, technical commentary and thought
+                      leadership.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Go global.</strong
+                      >
+                      INSOL International membership is included in the annual
+                      subscription.</span
+                    >
+                  </li>
+                </ul>
+                <div class="mt-auto pt-8">
+                  <div
+                    class="border-t border-n300 pt-6 text-lg leading-snug text-ink"
+                  >
+                    KES
+                    <strong class="text-2xl font-semibold tracking-[-0.01em]"
+                      >40,000</strong
+                    >
+                    <span class="text-n600">/ year</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="lift group relative flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)]"
+            >
+              <div class="overflow-hidden">
+                <img
+                  src="assets/images/kenyan-boardroom-hero.jpg"
+                  loading="lazy"
+                  alt="Kenyan finance and legal professionals collaborating in a Nairobi office"
+                  class="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              <div class="flex flex-1 flex-col p-8">
+                <div
+                  class="mb-4 flex items-center gap-3 text-xs font-semibold uppercase leading-none tracking-[0.28em] text-teal"
+                >
+                  <span>03</span><span class="h-px w-6 bg-n400"></span
+                  ><span class="text-ink">Corporate</span>
+                </div>
+                <h3
+                  class="mb-2 text-2xl font-semibold leading-[1.3] tracking-[-0.01em] text-ink"
+                >
+                  Build institutional capability
+                </h3>
+                <p>
+                  For organisations active in or exposed to turnaround,
+                  insolvency, restructuring, recovery and advisory work.
+                </p>
+                <ul class="mt-6 space-y-3">
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Sharper decisions.</strong
+                      >
+                      Market intelligence and cross-disciplinary
+                      perspective.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Stronger teams.</strong
+                      >
+                      Practical learning for credit, recoveries, restructuring
+                      and advisory teams.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Greater visibility.</strong
+                      >
+                      A credible platform for thought leadership and
+                      professional standing.</span
+                    >
+                  </li>
+                  <li class="flex gap-2.5 text-[15px] leading-snug">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" /></svg
+                    ><span
+                      ><strong class="font-semibold text-ink"
+                        >Better networks.</strong
+                      >
+                      Relationships across practitioners, peers, regulators and
+                      the wider ecosystem.</span
+                    >
+                  </li>
+                </ul>
+                <div class="mt-auto pt-8">
+                  <div
+                    class="border-t border-n300 pt-6 text-lg leading-snug text-ink"
+                  >
+                    KES
+                    <strong class="text-2xl font-semibold tracking-[-0.01em]"
+                      >110,000</strong
+                    >
+                    <span class="text-n600">/ 3 reps</span><br />KES
+                    <strong class="text-2xl font-semibold tracking-[-0.01em]"
+                      >160,000</strong
+                    >
+                    <span class="text-n600">/ 5 reps</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="mt-8 text-center text-[15px] text-n600">
+            One corporate membership. Multiple named representatives. Shared
+            capability.
+          </p>
+        </div>
+      </section>
+
+      <!-- Advocacy & institutional engagement -->
+      <section
+        id="advocacy"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24 bg-n200"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="mx-auto grid max-w-[600px] items-center gap-14 md:max-w-[700px] lg:max-w-none lg:grid-cols-2 lg:gap-10"
+          >
+            <div class="w-full max-w-[590px]">
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+              >
+                Advocacy &amp; institutional engagement
+              </div>
+              <h2
+                class="mb-4 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+              >
+                A collective voice where policy meets practice.
+              </h2>
+              <p class="mb-[34px]">
+                ATIK was created to represent members' views on legislative and
+                policy matters and to strengthen dialogue around effective
+                business recovery and
+                <span class="whitespace-nowrap">insolvency practice.</span>
+              </p>
+              <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                <a
+                  href="#membership"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink bg-ink text-white hover:border-brand hover:bg-brand hover:text-ink"
+                  >Become a member<svg
+                    class="ml-2 h-[18px] w-[18px]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg></a
+                ><a
+                  href="#contact"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-ink text-ink font-normal hover:bg-ink hover:text-white"
+                  >Get in touch</a
+                >
+              </div>
+              <div class="my-16 h-px bg-n400"></div>
+              <h3
+                class="mb-8 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-teal"
+              >
+                Current engagement
+              </h3>
+              <div class="grid gap-7 sm:grid-cols-2">
+                <div
+                  class="overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] p-6"
+                >
+                  <div
+                    class="mb-2 text-lg font-semibold uppercase leading-tight text-ink"
+                  >
+                    Official Receiver
+                  </div>
+                  <p class="text-base leading-normal">
+                    An active institutional relationship central to insolvency
+                    administration and practice.
+                  </p>
+                </div>
+                <div
+                  class="overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] p-6"
+                >
+                  <div
+                    class="mb-2 text-lg font-semibold uppercase leading-tight text-ink"
+                  >
+                    Judiciary
+                  </div>
+                  <p class="text-base leading-normal">
+                    Engagement with the Judiciary supports stronger shared
+                    understanding of the evolving insolvency framework.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-full max-w-[590px] lg:justify-self-end">
+              <div class="ml-auto sm:mb-9 sm:w-[92%]">
+                <div class="overflow-hidden rounded-2xl">
+                  <img
+                    src="assets/images/kenyan-boardroom-hero.jpg"
+                    loading="lazy"
+                    alt="Kenyan professionals working together around a boardroom table"
+                    class="aspect-[543/640] w-full object-cover"
+                  />
+                </div>
+              </div>
+              <figure
+                class="relative mx-4 -mt-10 overflow-hidden rounded-2xl bg-ink px-7 py-9 shadow-[0_2px_12px_0_rgba(2,63,52,0.08)] sm:absolute sm:bottom-0 sm:left-0 sm:mx-0 sm:mt-0 sm:w-[84%] sm:px-[42px] sm:py-[58px]"
+              >
+                <figcaption
+                  class="mb-4 text-sm font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+                >
+                  The ambition
+                </figcaption>
+                <p
+                  class="text-xl font-medium leading-snug text-white md:text-2xl"
+                >
+                  A credible, independent platform that can bring practitioner
+                  experience into the conversations that shape law, policy and
+                  <span class="whitespace-nowrap">market practice.</span>
+                </p>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional development -->
+      <section
+        id="development"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div class="mx-auto max-w-[600px] md:max-w-none">
+            <div
+              class="mb-10 grid items-center gap-8 text-center md:grid-cols-[1fr_auto] md:gap-10 md:text-left"
+            >
+              <div>
+                <div
+                  class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+                >
+                  Professional development
+                </div>
+                <h2
+                  class="mx-auto max-w-[620px] text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px] md:mx-0"
+                >
+                  From technical competence to market confidence.
+                </h2>
+                <p class="mx-auto mt-4 max-w-[640px] md:mx-0">
+                  ATIK supports learning and development through practical,
+                  specialist formats designed for the realities of the
+                  profession.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-ink px-7 py-6 text-left">
+                <div class="text-xl font-semibold leading-tight text-white">
+                  Knowledge compounds.
+                </div>
+                <div class="mt-1 text-sm leading-snug text-brand">
+                  Training builds confidence before complexity arrives.
+                </div>
+              </div>
+            </div>
+            <div class="grid gap-x-7 gap-y-10 md:grid-cols-2">
+              <article
+                class="group flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_32px_0_rgba(2,63,52,0.14)]"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="assets/images/kenyan-woman-leading.jpg"
+                    loading="lazy"
+                    alt="Kenyan woman leading an interactive professional workshop"
+                    class="aspect-[620/300] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div
+                  class="flex flex-1 flex-col px-7 pb-10 pt-8 md:px-[49px] md:pb-12 md:pt-[38px]"
+                >
+                  <div class="mb-5">
+                    <span
+                      class="inline-block rounded border border-n400 bg-white px-[22px] py-3.5 text-sm font-semibold uppercase leading-[1.125] tracking-[0.15em] text-teal shadow-[0_2px_12px_0_rgba(2,63,52,0.06)]"
+                      >Trainings &amp; workshops</span
+                    >
+                  </div>
+                  <p class="text-[22px] font-semibold leading-[1.429] text-ink">
+                    Structured learning on emerging legal, financial and
+                    operational issues.
+                  </p>
+                </div>
+              </article>
+              <article
+                class="group flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_32px_0_rgba(2,63,52,0.14)]"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="assets/images/african-masterclass.jpg"
+                    loading="lazy"
+                    alt="African facilitator presenting at a Nairobi professional masterclass"
+                    class="aspect-[620/300] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div
+                  class="flex flex-1 flex-col px-7 pb-10 pt-8 md:px-[49px] md:pb-12 md:pt-[38px]"
+                >
+                  <div class="mb-5">
+                    <span
+                      class="inline-block rounded border border-n400 bg-white px-[22px] py-3.5 text-sm font-semibold uppercase leading-[1.125] tracking-[0.15em] text-teal shadow-[0_2px_12px_0_rgba(2,63,52,0.06)]"
+                      >Masterclasses</span
+                    >
+                  </div>
+                  <p class="text-[22px] font-semibold leading-[1.429] text-ink">
+                    Focused technical sessions led by experienced practitioners
+                    and subject specialists.
+                  </p>
+                </div>
+              </article>
+              <article
+                class="group flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_32px_0_rgba(2,63,52,0.14)]"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="assets/images/kenyan-restructuring-review.jpg"
+                    loading="lazy"
+                    alt="Kenyan practitioners reviewing a turnaround plan together"
+                    class="aspect-[620/300] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div
+                  class="flex flex-1 flex-col px-7 pb-10 pt-8 md:px-[49px] md:pb-12 md:pt-[38px]"
+                >
+                  <div class="mb-5">
+                    <span
+                      class="inline-block rounded border border-n400 bg-white px-[22px] py-3.5 text-sm font-semibold uppercase leading-[1.125] tracking-[0.15em] text-teal shadow-[0_2px_12px_0_rgba(2,63,52,0.06)]"
+                      >Case studies</span
+                    >
+                  </div>
+                  <p class="text-[22px] font-semibold leading-[1.429] text-ink">
+                    Practical examination of complex restructurings, insolvency
+                    matters and recovery decisions.
+                  </p>
+                </div>
+              </article>
+              <article
+                class="group flex flex-col overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_32px_0_rgba(2,63,52,0.14)]"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="assets/images/kenyan-restructuring-review.jpg"
+                    loading="lazy"
+                    alt="Kenyan professionals analysing restructuring documents"
+                    class="aspect-[620/300] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div
+                  class="flex flex-1 flex-col px-7 pb-10 pt-8 md:px-[49px] md:pb-12 md:pt-[38px]"
+                >
+                  <div class="mb-5">
+                    <span
+                      class="inline-block rounded border border-n400 bg-white px-[22px] py-3.5 text-sm font-semibold uppercase leading-[1.125] tracking-[0.15em] text-teal shadow-[0_2px_12px_0_rgba(2,63,52,0.06)]"
+                      >Third-party learning</span
+                    >
+                  </div>
+                  <p class="text-[22px] font-semibold leading-[1.429] text-ink">
+                    Access to relevant external training opportunities and
+                    specialist programmes.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Board of Directors -->
+      <section
+        id="board"
+        class="py-20 md:py-24 lg:py-28 xl:py-[140px] scroll-mt-24 bg-cream"
+      >
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div class="mx-auto mb-12 max-w-[720px] text-center">
+            <div
+              class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-teal"
+            >
+              Leadership
+            </div>
+            <h2
+              class="mb-3.5 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px]"
+            >
+              Board of Directors
+            </h2>
+            <p>
+              ATIK is guided by a distinguished board drawn from leading firms
+              across Kenya's turnaround, insolvency and
+              <span class="whitespace-nowrap">advisory ecosystem.</span>
+            </p>
+          </div>
+          <ul class="flex flex-wrap justify-center gap-7">
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/sonal.png"
+                  loading="lazy"
+                  alt="Sonal Tejpar"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Sonal Tejpar
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">
+                Partner, ALN Kenya
+              </div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/muthusi.png"
+                  loading="lazy"
+                  alt="Makenzi Muthusi"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Makenzi Muthusi
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">Partner, KPMG</div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/george.png"
+                  loading="lazy"
+                  alt="George Weru"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                George Weru
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">Partner, PwC</div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/muniu.png"
+                  loading="lazy"
+                  alt="Muniu Thoithi"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Muniu Thoithi
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">Partner, PwC</div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/harveen.png"
+                  loading="lazy"
+                  alt="Harveen Gadhoke"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Harveen Gadhoke
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">
+                Partner, Adili Associates
+              </div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/robert.png"
+                  loading="lazy"
+                  alt="Robert Habwe"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Robert Habwe
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">
+                Manager, Deloitte
+              </div>
+            </li>
+            <li
+              class="lift overflow-hidden rounded-2xl border border-n300 bg-white shadow-[0_1px_2px_rgba(2,63,52,0.04),0_12px_32px_-12px_rgba(2,63,52,0.12)] w-full px-6 py-8 text-center sm:w-[calc(50%-14px)] lg:w-[calc(25%-21px)]"
+            >
+              <div
+                class="avatar mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-cream"
+              >
+                <img
+                  src="members/kereto.png"
+                  loading="lazy"
+                  alt="Kereto Marima"
+                  width="180"
+                  height="193"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div
+                class="text-lg font-semibold leading-tight tracking-[-0.01em] text-ink"
+              >
+                Kereto Marima
+              </div>
+              <div class="mt-1.5 text-[15px] leading-snug">
+                Director, KR Consult · Secretarial Lead
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Why now -->
+      <section class="bg-deep py-20 lg:py-[110px]">
+        <div class="mx-auto w-full max-w-[1316px] px-6">
+          <div
+            class="grid items-center gap-8 text-center lg:grid-cols-[1fr_auto] lg:gap-10 lg:text-left"
+          >
+            <div>
+              <div
+                class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-brand"
+              >
+                Why now
+              </div>
+              <h2
+                class="mx-auto max-w-[640px] text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-ink md:text-[40px] lg:text-[46px] !text-white lg:mx-0"
+              >
+                The profession is moving. The ecosystem is convening. Kenya is
+                hosting.
+              </h2>
+              <p class="mx-auto mt-4 max-w-[640px] text-n300 lg:mx-0">
+                Joining now creates time to build relationships, develop
+                capability and participate fully in ATIK's programme ahead of
+                ART 2026.
+              </p>
+            </div>
+            <div class="flex justify-center">
+              <div
+                class="flex flex-wrap items-center gap-4 sm:gap-6 justify-center"
+              >
+                <a
+                  href="mailto:info@turnaroundinsolvency.com?subject=ATIK%20membership%20enquiry"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white bg-white text-ink hover:border-brand hover:bg-brand"
+                  >Join ATIK<svg
+                    class="ml-2 h-[18px] w-[18px]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" /></svg></a
+                ><a
+                  href="#membership"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white text-white font-normal hover:bg-white hover:text-ink"
+                  >View pathways</a
+                >
+              </div>
+            </div>
+          </div>
+          <ol
+            class="mt-14 grid grid-cols-2 gap-x-7 gap-y-8 text-left lg:grid-cols-4"
+          >
+            <li class="border-t-2 border-n700 pt-4">
+              <div
+                class="text-xs font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Now
+              </div>
+              <div class="mt-2 text-base font-medium leading-snug text-white">
+                Join ATIK
+              </div>
+            </li>
+            <li class="border-t-2 border-n700 pt-4">
+              <div
+                class="text-xs font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Q3 2026
+              </div>
+              <div class="mt-2 text-base font-medium leading-snug text-white">
+                Engage + build capability
+              </div>
+            </li>
+            <li class="border-t-2 border-brand pt-4">
+              <div
+                class="text-xs font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Oct 2026
+              </div>
+              <div class="mt-2 text-base font-medium leading-snug text-white">
+                Participate in ART
+              </div>
+            </li>
+            <li class="border-t-2 border-n700 pt-4">
+              <div
+                class="text-xs font-semibold uppercase leading-none tracking-[0.2em] text-brand"
+              >
+                Beyond
+              </div>
+              <div class="mt-2 text-base font-medium leading-snug text-white">
+                Shape the profession
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer / contact -->
+    <footer id="contact" class="scroll-mt-24 bg-ink">
+      <div class="mx-auto w-full max-w-[1316px] px-6">
+        <div
+          class="grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.2fr_auto_1fr] lg:justify-between lg:gap-16 lg:py-[110px]"
+        >
+          <div class="max-w-[480px] md:col-span-2 lg:col-span-1">
+            <div
+              class="mb-5 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-brand"
+            >
+              Membership invitation
+            </div>
+            <div
+              class="text-[32px] font-medium leading-tight tracking-[-0.02em] text-white md:text-[40px]"
+            >
+              Be at the table.
+            </div>
+            <div class="mb-5 text-2xl font-normal leading-snug text-brand">
+              Where professional expertise becomes collective influence.
+            </div>
+            <p class="mb-8 text-n300">
+              Join the professional community shaping how Kenya responds to
+              financial distress, and how value is preserved when it
+              <span class="whitespace-nowrap">matters most.</span>
+            </p>
+            <a
+              href="mailto:info@turnaroundinsolvency.com?subject=ATIK%20membership%20enquiry"
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border px-8 py-5 text-base font-semibold leading-none no-underline transition-colors duration-300 border-white bg-white text-ink hover:border-brand hover:bg-brand"
+              >Membership enquiries<svg
+                class="ml-2 h-[18px] w-[18px]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></a>
+          </div>
+          <div>
+            <div class="mb-10 text-xl font-semibold leading-[1.1] text-white">
+              Explore
+            </div>
+            <ul class="space-y-[18px]">
+              <li>
+                <a
+                  href="#about"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#mandate"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >Mandate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#membership"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >Membership</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#development"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#board"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >Leadership</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="leading-[1.111] text-n400 no-underline transition-colors duration-300 hover:text-white"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="mb-10 text-xl font-semibold leading-[1.1] text-white">
+              Membership enquiries
+            </div>
+            <ul class="space-y-4 text-base leading-normal text-n300">
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" /></svg
+                ><span
+                  ><a
+                    href="mailto:info@turnaroundinsolvency.com"
+                    class="text-n400 no-underline transition-colors duration-300 hover:text-white !text-white"
+                    >info@turnaroundinsolvency.com</a
+                  ><br /><a
+                    href="mailto:associationssecretariat@aln.com"
+                    class="text-n400 no-underline transition-colors duration-300 hover:text-white !text-white"
+                    >associationssecretariat@aln.com</a
+                  ></span
+                >
+              </li>
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" /></svg
+                ><span
+                  >ALN House, Eldama Ravine Close,<br />off Eldama Ravine Road,
+                  Westlands</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" /></svg
+                ><span>P.O. Box 764 - 00606, Nairobi</span>
+              </li>
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  /></svg
+                ><span
+                  ><a
+                    href="tel:+254203640000"
+                    class="text-n400 no-underline transition-colors duration-300 hover:text-white"
+                    >020 364 0000</a
+                  >
+                  /
+                  <a
+                    href="tel:+254703032000"
+                    class="text-n400 no-underline transition-colors duration-300 hover:text-white"
+                    >0703 032000</a
+                  ></span
+                >
+              </li>
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  /></svg
+                ><span
+                  ><a
+                    href="https://www.turnaroundinsolvency.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="text-n400 no-underline transition-colors duration-300 hover:text-white"
+                    >www.turnaroundinsolvency.com</a
+                  ></span
+                >
+              </li>
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 h-5 w-5 shrink-0 text-brand"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" /></svg
+                ><span
+                  >LinkedIn: Association of Turnaround &amp; Insolvency Kenya
+                  (ATIK)</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="grid items-center gap-8 border-t border-n700 py-12 text-center md:grid-cols-[1fr_auto] md:text-left"
+        >
+          <div class="flex justify-center md:justify-start">
+            <a
+              href="#top"
+              class="inline-flex items-center gap-3 no-underline"
+              aria-label="ATIK - The Association of Turnaround &amp; Insolvency Kenya"
+              ><svg
+                class="h-11 w-11 shrink-0"
+                viewBox="0 0 40 40"
+                aria-hidden="true"
+              >
+                <path d="M6 36V17a14 14 0 0 1 28 0v19z" fill="#ffffff" />
+                <path
+                  d="M6 34l17-11 11 9"
+                  fill="none"
+                  stroke="#023f34"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                /></svg
+              ><span class="flex flex-col"
+                ><span class="text-[22px] font-semibold leading-none text-white"
+                  >ATIK</span
+                ><span
+                  class="mt-1 hidden text-[10px] font-semibold uppercase leading-tight tracking-[0.12em] text-brand sm:block"
+                  >Turnaround &amp; Insolvency Kenya</span
+                ></span
+              ></a
+            >
+          </div>
+          <p class="text-base text-n500">
+            © 2026 The Association of Turnaround &amp; Insolvency Kenya · ATIK -
+            Empowering Professionals
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Scroll reveals, reading progress and header shadow
+      (function () {
+        var items = [];
+        document
+          .querySelectorAll(
+            "main > section:not(:first-child) :is(h2, h2 + p, figure, article, ul > li, .grid > div)",
+          )
+          .forEach(function (el) {
+            if (el.parentElement.closest(".rv")) return;
+            var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+            el.style.setProperty("--d", Math.min(i, 6) * 0.08 + "s");
+            el.classList.add("rv");
+            items.push(el);
+          });
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              });
+            },
+            { rootMargin: "0px 0px -8% 0px" },
+          );
+          items.forEach(function (el) {
+            io.observe(el);
+          });
+        } else {
+          items.forEach(function (el) {
+            el.classList.add("in");
+          });
+        }
+
+        var bar = document.getElementById("progress");
+        var header = document.querySelector("header");
+        function onScroll() {
+          var max = document.documentElement.scrollHeight - innerHeight;
+          bar.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")";
+          header.classList.toggle("scrolled", scrollY > 8);
+        }
+        addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>
